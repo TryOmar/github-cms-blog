@@ -2,7 +2,9 @@ backend:
   name: github
   repo: tryomar/github-cms-blog
   branch: main
-  auth_type: implicit
+  auth_scope: repo
+  auth_endpoint: https://github.com/login/oauth/authorize
+  token_endpoint: https://github.com/login/oauth/access_token
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
