@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My Blog</title>
+</head>
+<body>
+  <h1>Welcome to My Blog</h1>
+  <div id="content"></div>
+  <script>
+    fetch('posts/hello-world.md')
+      .then(r => r.text())
+      .then(t => {
+        document.getElementById('content').innerHTML = `<pre>${t}</pre>`;
+      });
+  </script>
+</body>
+</html>
