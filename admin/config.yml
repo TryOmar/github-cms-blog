@@ -1,13 +1,14 @@
 backend:
   name: github
-  repo: tryomar/github-cms-blog
+  repo: tryomar/github-cms-blog   # your GitHub repo
   branch: main
 
+  # These two lines enable GitHub login using Netlify's open proxy
   base_url: https://api.netlify.com
   auth_endpoint: /auth
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+media_folder: "images/uploads"     # where uploaded images go inside repo
+public_folder: "/images/uploads"   # how images are referenced publicly
 
 collections:
   - name: "posts"
