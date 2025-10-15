@@ -3,16 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <title>My Blog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 15px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #333;
+    }
+  </style>
 </head>
 <body>
   <h1>Welcome to My Blog</h1>
-  <div id="content"></div>
+  <div id="content">Loading post...</div>
+
   <script>
     fetch('posts/hello-world.md')
-      .then(r => r.text())
-      .then(t => {
-        document.getElementById('content').innerHTML = `<pre>${t}</pre>`;
+      .then(res => res.text())
+      .then(text => {
+        document.getElementById('content').innerHTML = marked.parse(text);
+      })
+      .catch(() => {
+        document.getElementById('content').innerHTML = "Couldn't load post.";
       });
   </script>
+
+  <!-- Markdown renderer -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </body>
 </html>
